@@ -49,6 +49,8 @@ public class Multiplication {
 		
 		long afterTime = System.currentTimeMillis();
 		long secDiffTime = (afterTime-beforeTime);
+		System.out.println("beforeTime : " + beforeTime);
+		System.out.println("afterTime : " + afterTime);
 		System.out.println("실행시간 : secDiffTime : " + secDiffTime);
 	}
 }

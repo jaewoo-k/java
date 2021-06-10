@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.ifCondition;
 
 import java.util.Scanner;
 
