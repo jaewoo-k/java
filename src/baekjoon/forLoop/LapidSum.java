@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.StringTokenizer;
 
 public class LapidSum {
 /*
@@ -29,17 +30,52 @@ Python을 사용하고 있다면, input 대신 sys.stdin.readline을 사용할 수 있다. 단, 이
 입력
 첫 줄에 테스트케이스의 개수 T가 주어진다. T는 최대 1,000,000이다. 다음 T줄에는 각각 두 정수 A와 B가 주어진다. A와 B는 1 이상, 1,000 이하이다.
  */
+	// split() 보다는 StringTokenizer를 사용해서 시간을 줄이기
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));	
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
 		
-		int T = Integer.parseInt(br.readLine());
+//		int T = Integer.parseInt(br.readLine());
+		int T = 3;
 		
-		for(int i = 0; i < T; i++ ) {
+		
+//		수정전
+		/*
+ 		for(int i = 0; i < T; i++ ) {
 			String[] arr = br.readLine().split(" ");
-			System.out.println(Integer.parseInt(arr[0]) + Integer.parseInt(arr[1]));
+			int[] arr2 = new int[arr.length];
+			
+			for(int j = 0; j < arr2.length; j++) {
+				arr2[j] = Integer.parseInt(arr[j]);
+			}
+			
+			sb.append(arr2[0] + arr2[1] + "\n");
+		}
+		*/
+		// 시간체크
+//		long before = System.currentTimeMillis();
+		for(int i = 0; i < T; i++ ) {
+			st = new StringTokenizer(br.readLine(), " ");
+//			String write = st.nextToken();
+			
+			sb.append(
+					Integer.parseInt(st.nextToken()) + 
+					Integer.parseInt(st.nextToken()) + 
+					"\n" );
 			
 		}
+		// 출력
+		bw.write(sb.toString());	
+		
+//		long after = System.currentTimeMillis();
+//		System.out.println("걸린 시간 : " + (after-before));
+		// 스트림 닫아주기
+		bw.flush();
+		bw.close();
+		
+		br.close();
+		
 	}
-
 }
