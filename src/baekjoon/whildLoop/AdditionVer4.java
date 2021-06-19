@@ -32,17 +32,10 @@ A+B - 4
 			int A = Integer.parseInt(st.nextToken());
 			int B = Integer.parseInt(st.nextToken());
 			
-			
-			if(A == 0 && B == 0) {
-				br.close();
-				break;
-			}
-//			else {
 				sb.append(A+B + "\n");
-				
-//			}
 		}
-		 System.out.println(sb);
+		br.close();
+		System.out.println(sb);
 		
 	}
 
