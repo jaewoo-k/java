@@ -28,11 +28,11 @@ A+B - 4
 		String temp;
 		// readLine()의 반환 값은 String이므로 읽어올 것이 없으면 null
 		while( (temp = br.readLine()) != null ) {
-			st = new StringTokenizer(br.readLine(), " "); 
+			st = new StringTokenizer(temp, " "); 
 			int A = Integer.parseInt(st.nextToken());
 			int B = Integer.parseInt(st.nextToken());
 			
-				sb.append(A+B + "\n");
+			sb.append(A+B + "\n");
 		}
 		br.close();
 		System.out.println(sb);
