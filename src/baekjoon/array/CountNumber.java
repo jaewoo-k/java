@@ -19,8 +19,8 @@ public class CountNumber {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		// A * B * C 의 결과값
 		
+		// A * B * C 의 결과값
 		int result = Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine());
 //		int result = 17037300;
 		
@@ -39,7 +39,8 @@ public class CountNumber {
 		int t9 = 0;
 		
 		for(char count : temp) {
-			switch(count-48) {
+			// char -> int형으로 변환
+			switch(count - 48) {
 			case 0 : t0++; break;
 			case 1 : t1++; break;
 			case 2 : t2++; break;
