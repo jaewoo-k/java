@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Average {
-/**
+	/**
 평균 1546
 
 문제
@@ -23,38 +23,58 @@ public class Average {
 
 출력
 첫째 줄에 새로운 평균을 출력한다. 실제 정답과 출력값의 절대오차 또는 상대오차가 10-2 이하이면 정답이다.
- * @throws IOException 
- * @throws NumberFormatException 
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 
- */
+	 */
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st; 
 		ArrayList<Integer> list = new ArrayList<>();
-		// 최댓값 M
-		// 모든 점수를 점수/M*100
 		
-		// 첫째줄 과목 개수 N (N <= 1000)
-		// 둘쨰줄 현재 성적 (100이하의 음이 아닌 정수)
+		// 과목수 N
 		int N = Integer.parseInt(br.readLine());
-		int sum = 0;
-		
+
+		// list에 담아주기
 		st = new StringTokenizer(br.readLine(), " ");
 		while(st.hasMoreTokens()) {
 			int score = Integer.parseInt(st.nextToken());
 			list.add(score);
-			sum += score;
 		}
+		// 최댓값 M 뽑아오기.
+		int maxValue = MaxNum(list);
+		
+		System.out.println("===========");
 		System.out.println(list);
-		System.out.println("===============");
-		Collections.sort(list);
-		System.out.println(list);
-		
-		
-		
+		System.out.println(maxValue);
+		// 모든 점수를 점수/M*100
+
+		// 첫째줄 과목 개수 N (N <= 1000)
+		// 둘쨰줄 현재 성적 (100이하의 음이 아닌 정수)
+		int sum = 0;
+
+//		System.out.println(list);
+//		System.out.println("===============");
+//		Collections.sort(list);
+//		System.out.println(list);
+
+
+
 		int M;
-		
-		
+
+
+	}
+
+
+	// ArrayList값을 받아서 최댓값 뽑아오기. 
+	private static int MaxNum(ArrayList<Integer> list) {
+		int maxValue = 0;
+		for(int i = 0; i < list.size(); i++) {
+			if(maxValue < list.get(i)) {
+				maxValue = list.get(i);
+			}
+		}
+		return maxValue;
 	}
 
 }
