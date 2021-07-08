@@ -36,32 +36,23 @@ public class Average {
 		int N = Integer.parseInt(br.readLine());
 
 		// list에 담아주기
+		// sum에 socre 모두 더하기 
+		double sum = 0;
+		
 		st = new StringTokenizer(br.readLine(), " ");
 		while(st.hasMoreTokens()) {
 			int score = Integer.parseInt(st.nextToken());
 			list.add(score);
+			sum += score;
 		}
 		// 최댓값 M 뽑아오기.
 		int maxValue = MaxNum(list);
+		int M = maxValue;
 		
-		System.out.println("===========");
-		System.out.println(list);
-		System.out.println(maxValue);
 		// 모든 점수를 점수/M*100
-
-		// 첫째줄 과목 개수 N (N <= 1000)
-		// 둘쨰줄 현재 성적 (100이하의 음이 아닌 정수)
-		int sum = 0;
-
-//		System.out.println(list);
-//		System.out.println("===============");
-//		Collections.sort(list);
-//		System.out.println(list);
-
-
-
-		int M;
-
+		double average = (sum / M)  * 100 / N;
+		System.out.println(average);
+				
 
 	}
 
@@ -77,4 +68,20 @@ public class Average {
 		return maxValue;
 	}
 
+	/*
+	 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	
+		final int total = Integer.parseInt(br.readLine());
+		final String[] input = br.readLine().split(" ");
+		int score = 0;
+		int sum = 0;
+		int max = 0;
+		int i = 0;
+		for ( i = 0; i < input.length; i++ ) {
+			score = Integer.parseInt(input[i]);
+			sum += score;
+			max = score > max ? score : max;
+		}
+		System.out.println(Math.round(sum * 10000.0 / max / total) / 100.0);
+	 */
 }
