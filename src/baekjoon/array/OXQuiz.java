@@ -1,8 +1,10 @@
 package baekjoon.array;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class OXQuiz {
 /**
@@ -23,17 +25,40 @@ OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.
  */
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+//		String example = "5" 				+ System.lineSeparator() + 
+//						 "OOXXOXXOOO" 		+ System.lineSeparator() + 
+//						 "OOXXOOXXOO" 		+ System.lineSeparator() + 
+//						 "OXOXOXOXOXOXOX" 	+ System.lineSeparator() + 
+//						 "OOOOOOOOOO" 		+ System.lineSeparator() + 
+//						 "OOOOXOOOOXOOOOX"   ;
+		// 첫줄 숫자 읽음.
+		int LineNum = Integer.parseInt(br.readLine());
 		
-		String example = "5" 				+ System.lineSeparator() + 
-						 "OOXXOXXOOO" 		+ System.lineSeparator() + 
-						 "OOXXOOXXOO" 		+ System.lineSeparator() + 
-						 "OXOXOXOXOXOXOX" 	+ System.lineSeparator() + 
-						 "OOOOOOOOOO" 		+ System.lineSeparator() + 
-						 "OOOOXOOOOXOOOOX"   ;
+		for(int i = 0; i < LineNum; i++) {
+			char[] tempLine = br.readLine().toCharArray();
+			int sum = 0;	// 합
+			int dup = 0;	// 중복
+			
+			for(int j = 0; j < tempLine.length; j++) {
+				if(tempLine[j] == 'O') {
+					dup++;
+				}else {
+					dup = 0;
+				}
+				sum += dup;
+			}
+//			System.out.println("i : " + i + ", sum : " + sum);
+			if(i == LineNum-1) {
+				sb.append(sum);
+			}else {
+				sb.append(sum).append(System.lineSeparator());
+			}
+		}
+		System.out.println(sb);
+//		System.out.println("끝");
 		
-//		br.readLine();
 		
-		System.out.println(example);
 	}
 
 }
