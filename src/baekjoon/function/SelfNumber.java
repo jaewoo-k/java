@@ -27,25 +27,43 @@ n을 d(n)의 생성자라고 한다. 위의 수열에서 33은 39의 생성자이고, 39는 51의 생성자
  */
 public class SelfNumber {
 	
-	void d(int n) {
-		StringBuilder sb = new StringBuilder();
+	// 셀프넘버(생성자가없는수) 찾는 함수 d
+	static int d(int n) {
+		int sum = n;
 		
-		int sum = 0;
-		
-		for(int i = 0; i <= 10000; i++) {
-			sum += i % 10;
-			i / 10;
+		// 1의 자리부터 차례대로 더하는 과정
+		// n은 d(n)의 생성자
+		while(n != 0){
+			sum += (n % 10);	// 1234 % 10 = 4 
+			n = n / 10;			// 1234 / 10 = 123
 		}
-		System.out.println(sb);
+		
+		return sum;
 	}
 	
-	// 정수를 받아서 해당 정수가 몇자리 수인지 리턴해주는 함수
-	public int n(int n) {
-		return (int)(Math.log10(1234)+1);
-	}
 
 	
 	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder();
+		boolean[] con = new boolean[10001];		// 10000 + 1
+		
+		for(int i = 1; i <= 10000; i++) {
+			// 1~10000 까지의 정수를 d(i) 한다.
+			int n = d(i);
+
+			// 만약 d(i)한 결과값이 10000 이하라면
+			if(n <= 10000) {
+				// 그 값을 true로 바꿔준다
+				// default 값이 false임
+				con[n] = true;
+			}
+			// f인 경우 == 생성할 수 없는 수
+			if(!con[i]) {
+				// false인 경우는 출력
+				sb.append(i).append(System.lineSeparator());
+			}
+		}
+		System.out.println(sb);
 		
 	}
 	
