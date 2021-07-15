@@ -29,41 +29,28 @@ public class SelfNumber {
 	
 	void d(int n) {
 		StringBuilder sb = new StringBuilder();
-
-		// 10000보다 작거나 같은 셀프 넘버
-		for(int i = 1; i <= 10000; i++) {
-			int result = 0;
-			result = n;
-			
-			
+		
+		int sum = 0;
+		
+		for(int i = 0; i <= 10000; i++) {
+			sum += i % 10;
+			i / 10;
 		}
 		System.out.println(sb);
 	}
 	
+	// 정수를 받아서 해당 정수가 몇자리 수인지 리턴해주는 함수
+	public int n(int n) {
+		return (int)(Math.log10(1234)+1);
+	}
+
+	
 	public static void main(String[] args) {
-		// 자리수 알아내는 방법
-		
-//		for(int n = 1; n <= 10000; n++) {
-//			int result = 0;
-//			for(int i = 0; i < (Math.log10(n) + 1); i++) {
-//				int length = (int) (Math.log10(n) + 1);
-//				int[] sum = new int[length];
-//				// 각 자리수 넣어주기 [
-//				sum[i] = n % 1000
-////				result = sum + 
-//			}
-//			System.out.println(result);
-//			
-//		}
-		
-		System.out.println(1234 / 1000);	// 234
-		System.out.println(1234 / 100);		// 34
-		System.out.println(1234 % 10);		// 4
 		
 	}
 	
 	
 	
 	
-	
+
 }
