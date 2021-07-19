@@ -50,7 +50,6 @@ public class SelfNumber {
 		for(int i = 1; i <= 10000; i++) {
 			// 1~10000 까지의 정수를 d(i) 한다.
 			int n = d(i);
-
 			// 만약 d(i)한 결과값이 10000 이하라면
 			if(n <= 10000) {
 				// 그 값을 true로 바꿔준다
@@ -64,6 +63,8 @@ public class SelfNumber {
 			}
 		}
 		System.out.println(sb);
+		
+		
 		
 	}
 	
