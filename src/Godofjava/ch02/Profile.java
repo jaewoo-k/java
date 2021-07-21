@@ -1,4 +1,4 @@
-package Godofjava;
+package Godofjava.ch02;
 
 public class Profile {
 	String name;

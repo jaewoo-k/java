@@ -1,4 +1,4 @@
-package Godofjava;
+package Godofjava.ch02;
 
 public class Calculator {
 	
@@ -33,6 +33,15 @@ public class Calculator {
 	
 	public static void main(String[] args) {
 		System.out.println("Calculator class started");
+		int a = 5;
+		int b = 10;
+		int c = 15;
+		
+		Calculator cal = new Calculator();
+		System.out.println(cal.add(a,b));
+		System.out.println(cal.substract(a, b));
+		System.out.println(cal.mulitply(a,b));
+		System.out.println(cal.divide(a,b));
 		
 		
 	}
