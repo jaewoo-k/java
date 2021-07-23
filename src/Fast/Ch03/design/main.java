@@ -5,6 +5,8 @@ import Fast.Ch03.design.adapter.Cleaner;
 import Fast.Ch03.design.adapter.Electronic110V;
 import Fast.Ch03.design.adapter.HairDryer;
 import Fast.Ch03.design.adapter.SocketAdapter;
+import Fast.Ch03.design.proxy.BrowserProxy;
+import Fast.Ch03.design.proxy.IBrowser;
 
 public class main {
 
@@ -38,6 +40,19 @@ public class main {
 		// 110V 인터페이스 = new 110V로 만든 어댑터클래스(220V구현 클래스);
 		Electronic110V adapter_airCon = new SocketAdapter(airConditioner);
 		connect(adapter_airCon);
+		
+		System.out.println("=========Proxy=========");
+		// Proxy
+		
+//		Browser browser = new Browser("www.naver.com");
+//		browser.show();
+		
+		IBrowser browser = new BrowserProxy("www.naver.com");
+		browser.show();
+		browser.show();
+		browser.show();
+		browser.show();
+		
 	}
 	
 	// 콘센트
