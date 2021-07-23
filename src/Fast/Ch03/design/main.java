@@ -5,8 +5,11 @@ import Fast.Ch03.design.adapter.Cleaner;
 import Fast.Ch03.design.adapter.Electronic110V;
 import Fast.Ch03.design.adapter.HairDryer;
 import Fast.Ch03.design.adapter.SocketAdapter;
-import Fast.Ch03.design.proxy.BrowserProxy;
-import Fast.Ch03.design.proxy.IBrowser;
+import Fast.Ch03.design.decorator.A3;
+import Fast.Ch03.design.decorator.A4;
+import Fast.Ch03.design.decorator.A5;
+import Fast.Ch03.design.decorator.Audi;
+import Fast.Ch03.design.decorator.ICar;
 
 public class main {
 
@@ -43,16 +46,57 @@ public class main {
 		
 		System.out.println("=========Proxy=========");
 		// Proxy
-		
-//		Browser browser = new Browser("www.naver.com");
-//		browser.show();
+		/*
+		Browser browser = new Browser("www.naver.com");
+		browser.show();
 		
 		IBrowser browser = new BrowserProxy("www.naver.com");
 		browser.show();
 		browser.show();
 		browser.show();
 		browser.show();
+		*/
 		
+		/*
+		// 시간체크를 위해 아토믹 사용
+		AtomicLong start = new AtomicLong();
+		AtomicLong end = new AtomicLong();
+		
+		IBrowser aopBrowser = new AopBrowser("www.naver.com",
+				//람다식으로 표현
+				()->{
+					System.out.println("before");
+					start.set(System.currentTimeMillis());
+					},
+				()->{
+					long now = System.currentTimeMillis();
+					end.set(now - start.get());
+					}
+		);   
+				
+		aopBrowser.show();
+		System.out.println("loading time : " + end.get());	// 처음 호출 시 1500millis 걸리지만
+		
+		aopBrowser.show();
+		System.out.println("loading time : " + end.get());	// 두번째 호출 시 캐시를 활용하기 떄문에 0이 걸림
+		*/
+		
+		// Decorator
+		// 기본 뼈대인 Audi 클래스를 냅두고, audi인스턴스를 전달해서 
+		// AudiDecorator 를 extends(상속)받은 A3, A4클래스들의 인스턴스만 수정(첨가)하여 모델을 만들었다.
+		// 
+		ICar audi = new Audi(1000);
+		audi.showPrice();
+		
+		// a3
+		ICar audi3 = new A3(audi, "A3");
+		audi3.showPrice();
+		// a4
+		ICar audi4 = new A4(audi, "A4");
+		audi4.showPrice();
+		// a5
+		ICar audi5 = new A5(audi, "A5");
+		audi5.showPrice();
 	}
 	
 	// 콘센트
