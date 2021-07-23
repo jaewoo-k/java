@@ -1,4 +1,4 @@
-package Fast.Ch03.desing.singleton;
+package Fast.Ch03.design.singleton;
 
 public class BClazz {
 	
