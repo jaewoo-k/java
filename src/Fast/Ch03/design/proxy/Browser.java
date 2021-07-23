@@ -1,5 +1,5 @@
 package Fast.Ch03.design.proxy;
 
-public interface IBrowser {
+public interface Browser {
 	Html show();
 }
