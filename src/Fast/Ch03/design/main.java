@@ -10,6 +10,8 @@ import Fast.Ch03.design.decorator.A4;
 import Fast.Ch03.design.decorator.A5;
 import Fast.Ch03.design.decorator.Audi;
 import Fast.Ch03.design.decorator.ICar;
+import Fast.Ch03.design.observer.Button;
+import Fast.Ch03.design.observer.IButtonListener;
 
 public class main {
 
@@ -97,6 +99,37 @@ public class main {
 		// a5
 		ICar audi5 = new A5(audi, "A5");
 		audi5.showPrice();
+		
+		
+		// observer
+		Button button = new Button("버튼");
+		
+		button.addListener(new IButtonListener() {
+			@Override
+			public void clickEvent(String event) {
+				System.out.println(event);
+			}
+		});
+		
+		
+		button.click("메세지 전달 : click1");
+		button.click("메세지 전달 : click2");
+		button.click("메세지 전달 : click3");
+		button.click("메세지 전달 : click4");
+		button.click("메세지 전달 : click5");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	// 콘센트
