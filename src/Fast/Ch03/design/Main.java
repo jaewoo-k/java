@@ -10,10 +10,14 @@ import Fast.Ch03.design.decorator.A4;
 import Fast.Ch03.design.decorator.A5;
 import Fast.Ch03.design.decorator.Audi;
 import Fast.Ch03.design.decorator.ICar;
+import Fast.Ch03.design.facade.Ftp;
+import Fast.Ch03.design.facade.Reader;
+import Fast.Ch03.design.facade.SftpClient;
+import Fast.Ch03.design.facade.Writer;
 import Fast.Ch03.design.observer.Button;
 import Fast.Ch03.design.observer.IButtonListener;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		/*
@@ -119,7 +123,32 @@ public class main {
 		button.click("메세지 전달 : click5");
 		
 		
+		// facade : 결합도가 높을때 인터페이스를 중간에 두어 코드를 안쪽으로 숨기는 패턴
+		Ftp ftpClient = new Ftp("www.foo.co.kr", 22, "/home/etc");
+		ftpClient.connect();
+		ftpClient.moveDirectory();
 		
+		Writer writer = new Writer("text.tmp");
+		writer.fileConnect();
+		writer.write();
+		
+		Reader reader = new Reader("text.tmp");
+		reader.fileConnect();
+		reader.fileRead();
+		
+		reader.fileDisconnect();
+		writer.fileDisconnect();
+		ftpClient.disConnect();
+		
+		// 위의 코드를 변경
+		SftpClient sftpClient = new SftpClient("www.foo.co.kr", 22, "/home/etc", "text.tmp");
+		sftpClient.connect();
+		
+		sftpClient.write();
+		
+		sftpClient.read();
+		
+		sftpClient.disConnect();
 		
 		
 		

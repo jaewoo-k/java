@@ -1,6 +1,7 @@
 package Fast.Ch03.design.observer;
 
 public class Button {
+	
 	private String name;
 	private IButtonListener buttonListener;
 	
